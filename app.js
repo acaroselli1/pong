@@ -141,12 +141,12 @@ window.onresize = drawScreen;
 window.onkeydown = (e) => {
 
     if (e.keyCode === 38) {
-        speedX++;
-        speedY++;
+        // speedX++;
+        // speedY++;
     }
     else if (e.keyCode === 40) {
-        speedX--;
-        speedY--;
+        // speedX--;
+        // speedY--;
     }
     else if (e.keyCode === 65 && paddle1Y > 20) {
         paddle1Y -= 20;
