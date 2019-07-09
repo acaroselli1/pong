@@ -11,8 +11,8 @@ var paddle2Y = canvas.height / 2 - 100;
 var left = true;
 var player1Score = 0;
 var player2Score = 0;
-var speedX = 20;
-var speedY = 4;
+var speedX = 10;
+var speedY = 2;
 
 
 drawScreen = () => {
@@ -66,12 +66,14 @@ animateBall = () => {
 
     if (circleX < 21) {
         player2Score++;
+        document.getElementById("score").play();
         drawScreen();
         circleX = canvas.width / 2;
         circleY = canvas.height / 2;
     }
 
     if (circleX > canvas.width + 21) {
+        document.getElementById("score").play();
         player1Score++;
         drawScreen();
         circleX = canvas.width / 2;
@@ -79,15 +81,16 @@ animateBall = () => {
     }
 
     if (circleY + speedY > canvas.height - 20 || circleY + speedY < 20) {
+        document.getElementById("hit-wall").play();
         speedY = -speedY;
     }
     if (circleY > paddle2Y - 20 && circleY < paddle2Y + 221 && (canvas.width - circleX <= 71)) {
-        speedX = -speedX;
         document.getElementById("hit-sound").play();
+        speedX = -speedX;
     }
     if (circleY > paddle1Y - 20 && circleY < paddle1Y + 221 && circleX <= 71) {
-        speedX = -speedX;
         document.getElementById("hit-sound").play();
+        speedX = -speedX;
     }
 
     circleX += speedX;
