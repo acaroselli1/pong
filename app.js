@@ -19,7 +19,8 @@ drawScreen = () => {
     canvas.height = window.innerHeight
     canvas.width = window.innerWidth;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawScore();
+    drawScore1();
+    drawScore2();
     drawBall();
     drawPaddle1();
     paddle2X = canvas.width - 40;
@@ -54,11 +55,26 @@ drawPaddle2 = () => {
     ctx.fill();
 }
 
-drawScore = () => {
+drawScore1 = () => {
     ctx.font = "30px Arial";
     ctx.strokeStyle = "white";
-    ctx.strokeText(player1Score, canvas.width / 4, canvas.height / 4);
-    ctx.strokeText(player2Score, canvas.width * .75, canvas.height / 4);
+    if (player1Score > player2Score) {
+        ctx.fillStyle = "white";
+        ctx.fillText(player1Score, canvas.width / 4, canvas.height / 4);
+    } else {
+        ctx.strokeText(player1Score, canvas.width / 4, canvas.height / 4);
+    }
+}
+
+drawScore2 = () => {
+    ctx.font = "30px Arial";
+    ctx.strokeStyle = "white";
+    if (player2Score > player1Score) {
+        ctx.fillStyle = "white";
+        ctx.fillText(player2Score, canvas.width * .75, canvas.height / 4);
+    } else{
+        ctx.strokeText(player2Score, canvas.width * .75, canvas.height / 4);
+    } 
 }
 
 
@@ -132,7 +148,7 @@ window.addEventListener('load', drawBall);
 movePaddle2 = (e) => {
     if (paddle2Y > 0 & e.wheelDelta > 0) {
         paddle2Y -= 20;
-    } else if(paddle2Y < canvas.height - 220){
+    } else if (paddle2Y < canvas.height - 220) {
         paddle2Y += 20;
     }
 }
