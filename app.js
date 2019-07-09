@@ -65,14 +65,14 @@ drawScore = () => {
 animateBall = () => {
 
     if (circleX < 21) {
-        player1Score++;
+        player2Score++;
         drawScreen();
         circleX = canvas.width / 2;
         circleY = canvas.height / 2;
     }
 
     if (circleX > canvas.width + 21) {
-        player2Score++;
+        player1Score++;
         drawScreen();
         circleX = canvas.width / 2;
         circleY = canvas.height / 2;
