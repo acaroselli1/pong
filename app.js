@@ -100,11 +100,11 @@ animateBall = () => {
         document.getElementById("hit-wall").play();
         speedY = -speedY;
     }
-    if (circleY > paddle2Y - 20 && circleY < paddle2Y + 221 && (canvas.width - circleX <= 71)) {
+    if (circleY > paddle2Y - 20 && circleY < paddle2Y + 221 && ((canvas.width - circleX <= 71) && (canvas.width -circleX >= 60))) {
         document.getElementById("hit-sound").play();
         speedX = -speedX;
     }
-    if (circleY > paddle1Y - 20 && circleY < paddle1Y + 221 && circleX <= 71) {
+    if (circleY > paddle1Y - 20 && circleY < paddle1Y + 221 && (circleX <= 71 && circleX >= 60)) {
         document.getElementById("hit-sound").play();
         speedX = -speedX;
     }
